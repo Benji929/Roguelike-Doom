@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [System.Serializable]
-    public class Pool
-    {
-        public string tag;
-        public GameObject prefab;
-        public int size;
-        public bool canExpand;
-    }
-
     #region Singleton
 
     public static ObjectPooler instance;
@@ -74,7 +65,7 @@ public class ObjectPooler : MonoBehaviour
 
     }
 
-    public void SpawnPooledObject(string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnPooledObject(string tag, Vector3 position, Quaternion rotation)
     {
         GameObject objToSpawn = GetPooledObject(tag);
 
@@ -84,16 +75,12 @@ public class ObjectPooler : MonoBehaviour
             objToSpawn.transform.rotation = rotation;
             objToSpawn.SetActive(true);
         }
+
+        return objToSpawn;
     }
 
     public void DespawnObjectIntoPool(GameObject obj)
     {
         obj.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
