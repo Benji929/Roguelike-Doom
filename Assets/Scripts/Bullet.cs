@@ -4,13 +4,13 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
-    public float damage;
+    public float Damage;
 
     protected ObjectPooler objectPooler;
 
     protected virtual void Awake()
     {
-        objectPooler = GameManager.instance.GetComponent<ObjectPooler>();
+        objectPooler = GameManager.instance.gameObject.GetComponent<ObjectPooler>();
     }
 
     protected virtual void DespawnBullet()

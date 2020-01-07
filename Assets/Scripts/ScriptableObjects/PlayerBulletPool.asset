@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerBulletPool
   m_EditorClassIdentifier: 
   tag: Player Bullet
-  prefab: {fileID: 0}
+  prefab: {fileID: 3824253110165678228, guid: 6925ab47fc8689d45a851cbdcbde19b1, type: 3}
   size: 20
   canExpand: 1

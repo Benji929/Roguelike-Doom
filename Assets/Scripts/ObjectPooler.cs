@@ -65,10 +65,19 @@ public class ObjectPooler : MonoBehaviour
 
     }
 
-    public GameObject SpawnPooledObject(string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnPooledObject(string tag, Vector3 position, Quaternion rotation, GameObject objToSpawnParameter = null)
     {
-        GameObject objToSpawn = GetPooledObject(tag);
+        GameObject objToSpawn;
 
+        if (objToSpawnParameter == null)
+        {
+             objToSpawn = GetPooledObject(tag);
+        }
+        else
+        {
+            objToSpawn = objToSpawnParameter;
+        }
+        
         if (objToSpawn != null)
         {
             objToSpawn.transform.position = position;
