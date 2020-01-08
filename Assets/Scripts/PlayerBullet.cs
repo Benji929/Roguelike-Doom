@@ -15,9 +15,13 @@ public class PlayerBullet : Bullet
     }
     protected void OnEnable()
     {
+        //resize the bullet based in bulletScale
         transform.localScale = new Vector3(1f, 1f, 1f) * bulletScale;
 
+        //set bullet to face the direction of travel
         transform.up = TravelDir;
+
+        //set velocity of bullet
         rb.velocity = TravelDir * Speed;
     }
 }

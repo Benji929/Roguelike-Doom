@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
     public static GameManager instance { private set; get; }//Singleton
-
     private void Awake()
     {
         if (instance == null)
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
+    #endregion
 
     // Start is called before the first frame update
     void Start()

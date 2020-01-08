@@ -11,7 +11,7 @@ public class Chaingun : Weapon
             if (Input.GetMouseButton(0)) //chaingun keeps firing as long as mouse button is pressed down
             {
                 FireWeapon();
-                fireDelayCounter += fireDelay;
+                fireDelayCounter = Time.time + fireDelay;
             }
         }
     }

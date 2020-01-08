@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public int weaponEquippedIndex;
-    public List<Weapon> weaponList = new List<Weapon>();
+    public int weaponEquippedIndex; //index of weapon equipped
+    public List<Weapon> weaponList = new List<Weapon>(); //list of all weapons
 
     private void Awake()
     {
@@ -36,11 +36,13 @@ public class WeaponManager : MonoBehaviour
     {
         if (weaponEquippedIndex == weaponList.Count - 1)
         {
+            //if weapon equipped is at end of the list (for out of bounds exception)
             SwapWeapon(weaponList[0]);
             weaponEquippedIndex = 0;
         }
         else
         {
+            //increment weaponEquippedIndex by 1 and swaps to that weapon;
             SwapWeapon(weaponList[weaponEquippedIndex + 1]);
             weaponEquippedIndex += 1;
         }
@@ -48,16 +50,19 @@ public class WeaponManager : MonoBehaviour
 
     private void SwapWeapon(Weapon weapon)
     {
+        //case where weapon passed in is already equipped
         if (weaponList[weaponEquippedIndex] == weapon)
         {
             return;
         }
 
+        //disable all weapon scripts
         foreach (Weapon w in weaponList)
         {
             w.enabled = false;
         }
 
+        //enable the weapon script that is passed in
         weapon.enabled = true;
     }
 }
