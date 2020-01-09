@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 132658356}
   - component: {fileID: 132658358}
   - component: {fileID: 132658357}
+  - component: {fileID: 132658360}
   - component: {fileID: 132658359}
   m_Layer: 0
   m_Name: Weapons
@@ -166,14 +167,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireDelay: 0.5
-  Damage: 0
-  bulletSpeed: 5
-  bulletLifeTime: 0.5
-  bulletDrag: 5
+  Damage: 2
+  bulletSpeed: 20
+  bulletLifeTime: 0.3
+  bulletDrag: 24
   ObjectPooler: {fileID: 0}
   playerBulletPool: {fileID: 11400000, guid: c95888e6a348c2546b5114503bbba24f, type: 2}
   numberOfBullets: 10
-  angleOfBulletSpread: 90
+  angleOfBulletSpread: 50
 --- !u!114 &132658358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95d8c5077ed3114787d02d689f76f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0.1
+  fireDelay: 0.3
   Damage: 1
   bulletSpeed: 5
   bulletLifeTime: 5
@@ -207,7 +208,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireDelay: 0.1
   Damage: 2
-  bulletSpeed: 5
+  bulletSpeed: 10
+  bulletLifeTime: 5
+  bulletDrag: 0
+  ObjectPooler: {fileID: 0}
+  playerBulletPool: {fileID: 11400000, guid: eaab94cef25575042a30bcbaabcf9d08, type: 2}
+  startupTime: 0.2
+  timeButtonHeldForMaxFiringRate: 3
+  initialFireDelay: 0.3
+--- !u!114 &132658360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132658355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8ef92d55194e4ab5d2f5721478e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireDelay: 0.17
+  Damage: 3
+  bulletSpeed: 10
   bulletLifeTime: 5
   bulletDrag: 0
   ObjectPooler: {fileID: 0}

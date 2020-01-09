@@ -36,7 +36,7 @@ public class Shotgun : Weapon
 
         //calculate travelDir component of player velocity
         float thisBulletSpeed;
-        thisBulletSpeed = bulletSpeed - playerController.Velocity.magnitude * Mathf.Cos(Vector2.Angle(travelDir, playerController.Velocity));
+        thisBulletSpeed = bulletSpeed + playerController.Velocity.magnitude * Mathf.Cos((Mathf.PI * Vector2.Angle(travelDir, playerController.Velocity)) / 180);
 
         bulletPlayerBulletScript.Speed = thisBulletSpeed;
         bulletPlayerBulletScript.TravelDir = thisBulletTravelDir;
