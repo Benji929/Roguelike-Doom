@@ -165,11 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf820822b1538d744bc5c56b0fd1d72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0
+  fireDelay: 0.5
   Damage: 0
-  BulletSpeed: 0
+  bulletSpeed: 5
+  bulletLifeTime: 0.5
+  bulletDrag: 5
   ObjectPooler: {fileID: 0}
-  playerBulletPool: {fileID: 11400000, guid: eaab94cef25575042a30bcbaabcf9d08, type: 2}
+  playerBulletPool: {fileID: 11400000, guid: c95888e6a348c2546b5114503bbba24f, type: 2}
+  numberOfBullets: 10
+  angleOfBulletSpread: 90
 --- !u!114 &132658358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,9 +186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95d8c5077ed3114787d02d689f76f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0
+  fireDelay: 0.1
   Damage: 1
-  BulletSpeed: 5
+  bulletSpeed: 5
+  bulletLifeTime: 5
+  bulletDrag: 0
   ObjectPooler: {fileID: 0}
   playerBulletPool: {fileID: 11400000, guid: eaab94cef25575042a30bcbaabcf9d08, type: 2}
 --- !u!114 &132658359
@@ -199,9 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c510fc4977bdc7d4a9c3f754905f2853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0.2
+  fireDelay: 0.1
   Damage: 2
-  BulletSpeed: 5
+  bulletSpeed: 5
+  bulletLifeTime: 5
+  bulletDrag: 0
   ObjectPooler: {fileID: 0}
   playerBulletPool: {fileID: 11400000, guid: eaab94cef25575042a30bcbaabcf9d08, type: 2}
 --- !u!1 &380838010
@@ -236,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - {fileID: 11400000, guid: eaab94cef25575042a30bcbaabcf9d08, type: 2}
+  - {fileID: 11400000, guid: c95888e6a348c2546b5114503bbba24f, type: 2}
 --- !u!114 &380838012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6a5b3988a33da47b7990b79d51cc4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 200
+  moveSpeed: 100
+  Velocity: {x: 0, y: 0}
 --- !u!1 &1947263751
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private float moveVector_x;
     private float moveVector_y;
+    public Vector2 Velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,12 @@ public class PlayerController : MonoBehaviour
         //movement inputs
         moveVector_x = Input.GetAxis("Horizontal");
         moveVector_y = Input.GetAxis("Vertical");
-        
     }
 
     private void FixedUpdate()
     {
         //movement
         rb.velocity = new Vector2(moveVector_x, moveVector_y) * moveSpeed * Time.deltaTime;
+        Velocity = rb.velocity;
     }
 }

@@ -7,15 +7,17 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float fireDelay; //minimum delay between each bullet fired
     protected float fireDelayCounter = 0; 
     public float Damage;
-    public float BulletSpeed;
+    [SerializeField] protected float bulletSpeed;
+    [SerializeField] protected float bulletLifeTime = 5;
+    [SerializeField] protected float bulletDrag;
 
     private Camera cam;
-    private Vector2 target; //mouse position in world space
-    private Vector2 travelDir; //direction in which bullet(s) will be fired in
+    protected Vector2 target; //mouse position in world space
+    protected Vector2 travelDir; //direction in which bullet(s) will be fired in
 
     public ObjectPooler ObjectPooler;
     [SerializeField] protected Pool playerBulletPool; //pool information for player's bullet that spawns/despawns
-    private PlayerController playerController;
+    protected PlayerController playerController;
 
     protected virtual void Awake()
     {
@@ -59,12 +61,18 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void FireWeapon()
     {
         GameObject bullet = ObjectPooler.GetPooledObject(playerBulletPool.tag);
-        PlayerBullet bulletPlayerBulletScript = bullet.GetComponent<PlayerBullet>();
+        Bullet bulletPlayerBulletScript = bullet.GetComponent<Bullet>();
         bulletPlayerBulletScript.TravelDir = travelDir;
-        bulletPlayerBulletScript.Speed = BulletSpeed;
+
+        //calculate travelDir component of player velocity
+        float thisBulletSpeed;
+        thisBulletSpeed = bulletSpeed - playerController.Velocity.magnitude * Mathf.Cos(Vector2.Angle(travelDir, playerController.Velocity));
+
+        bulletPlayerBulletScript.Speed = thisBulletSpeed;
+        bulletPlayerBulletScript.Lifetime = bulletLifeTime;
+        bulletPlayerBulletScript.linearDrag = bulletDrag;
 
         //pass values to the object before activating (because values are initialized in OnEnable())
         ObjectPooler.SpawnPooledObject(playerBulletPool.tag, transform.position, Quaternion.LookRotation(travelDir), bullet);
-        
     }
 }
