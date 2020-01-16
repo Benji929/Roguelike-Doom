@@ -26,26 +26,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         playerController = FindObjectOfType<PlayerController>();
     }
 
-    protected virtual void Move()
-    {
-        
-    }
-
-    protected virtual void Patrol()
-    {
-        //while
-               // aiDestinationSetter.targetPosition = 
-    }
-
-    protected virtual void SetNewPatrolDestination()
-    {
-        //while (gridGraph.)
-        {
-            Vector2 tempDestination = (Vector2)transformToSetAsPatrolArea.transform.position + new Vector2(Random.Range(-patrolRange, patrolRange), Random.Range(-patrolRange, patrolRange));
-
-        }
-
-    }
+    protected abstract void Move();
 
     protected abstract void Attack();
 

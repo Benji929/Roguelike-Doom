@@ -17,13 +17,13 @@ public class RoomGenerator : MonoBehaviour
     private AstarPath activeAstarPath;
 
     public Vector3Int Center;
-    public int roomWidth;
-    public int roomHeight;
+    public int width;
+    public int height;
 
     private void Awake()
     {
         activeAstarPath = AstarPath.active;
-        PlaceRoom(Center);
+        PlaceRoom(Center, width, height);
     }
 
     private void Start()
@@ -36,18 +36,21 @@ public class RoomGenerator : MonoBehaviour
     private void Update()
     {
         //scan the graph the frame immediately after start frame (i.e. second frame of the scene loading)
-        if (Time.time == Time.deltaTime) activeAstarPath.Scan();
+        if (Time.time == Time.deltaTime)
+        {
+            activeAstarPath.Scan();
+        }
 
 
     }
 
-    public void PlaceRoom(Vector3Int center)
+    public void PlaceRoom(Vector3Int center, int width, int height)
     {
-        PlaceGroundTiles(center);
-        PlaceWallTiles(center);
+        PlaceRoomGroundTiles(center, width, height);
+        PlaceRoomWallTiles(center, width, height);
     }
 
-    public void PlaceGroundTiles(Vector3Int center)
+    public void PlaceRoomGroundTiles(Vector3Int center, int roomWidth, int roomHeight)
     {
         for (int x = 0; x < roomWidth; x++)
         {
@@ -59,7 +62,7 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    public void PlaceWallTiles(Vector3Int center)
+    public void PlaceRoomWallTiles(Vector3Int center, int roomWidth, int roomHeight)
     {
         for (int x = -1; x < roomWidth + 1; x++)
         {
