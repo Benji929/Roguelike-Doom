@@ -53,15 +53,17 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponent<PlayerController>() != null || collision.GetComponent<PlayerController>() != null)
+        {
+            return;
+        }
+
         if (collision.GetComponent<IDamageable>() != null)
         {
             collision.GetComponent<IDamageable>().DamagedByAmount(Damage);
             
         }
-        else if(collision.GetComponent<PlayerController>() != null)
-        {
-            return;
-        }
+
         DespawnBullet();
     }
 }
