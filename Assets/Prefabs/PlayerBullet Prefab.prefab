@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7284454113517173754}
   - component: {fileID: 2814348128131258814}
   - component: {fileID: 8818581780326108405}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerBullet Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
+  Lifetime: 0
+  linearDrag: 0
   TravelDir: {x: 0, y: 0}
   bulletScale: 1
   Speed: 1

@@ -33,6 +33,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     void IDamageable.DamagedByAmount(float damage)
     {
         health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     protected virtual void Die()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7284454113517173754}
   - component: {fileID: 2814348128131258814}
   - component: {fileID: 1747203504125220718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerShotgunBullet Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
