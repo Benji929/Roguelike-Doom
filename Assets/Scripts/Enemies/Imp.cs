@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Imp : MonoBehaviour
+public class Imp : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Move()
     {
+        if (ai.reachedDestination)
+        {
+            
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Attack()
     {
         
     }

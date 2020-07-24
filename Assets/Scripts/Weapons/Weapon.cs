@@ -22,14 +22,14 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void Awake()
     {
         ObjectPooler = GameManager.instance.GetComponent<ObjectPooler>();
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>(); 
     }
 
     protected virtual void OnEnable()
     {
         cam = Camera.main;
     }
-
+    
     protected virtual void Update()
     {
         //travelDir set to normalized vector from player to mouse position
@@ -39,6 +39,7 @@ public abstract class Weapon : MonoBehaviour
 
         CalculateFireTime();
     }
+
 
     /// <summary>
     /// fires weapon after fireDelay seconds and when player clicks the right mouse button

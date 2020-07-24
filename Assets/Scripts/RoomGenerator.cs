@@ -28,7 +28,7 @@ public class RoomGenerator : MonoBehaviour
 
     private void Start()
     {
-
+        
 
 
     }
@@ -40,7 +40,6 @@ public class RoomGenerator : MonoBehaviour
         {
             activeAstarPath.Scan();
         }
-
 
     }
 
