@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3824253110165678229}
   - component: {fileID: 7284454113517173754}
   - component: {fileID: 2814348128131258814}
-  - component: {fileID: 1747203504125220718}
-  m_Layer: 10
-  m_Name: PlayerShotgunBullet Prefab
-  m_TagString: Untagged
+  - component: {fileID: 8818581780326108405}
+  m_Layer: 11
+  m_Name: PlayerBullet Prefab
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,7 +121,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.002942916}
   m_Size: {x: 0.038619567, y: 0.073955365}
   m_Direction: 0
---- !u!114 &1747203504125220718
+--- !u!114 &8818581780326108405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,11 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3824253110165678228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0780168dd39e2be4e8ae934a100850e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0db042a4a7c000245997a82669bcdbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  Lifetime: 2
+  Lifetime: 0
   linearDrag: 0
   TravelDir: {x: 0, y: 0}
   bulletScale: 1

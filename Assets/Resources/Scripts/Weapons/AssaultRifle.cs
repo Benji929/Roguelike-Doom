@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AssaultRifle : Weapon
 {
-    protected override void CalculateFireTime()
+    protected override void CalculateFireTimeAndFire()
     {
         if (Time.time >= fireDelayCounter)
         {

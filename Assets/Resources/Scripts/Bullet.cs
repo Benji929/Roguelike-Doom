@@ -17,7 +17,7 @@ public abstract class Bullet : MonoBehaviour
 
     protected virtual void Awake()
     {
-        objectPooler = GameManager.instance.gameObject.GetComponent<ObjectPooler>();
+        objectPooler = GameManager.singleton.gameObject.GetComponent<ObjectPooler>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -53,10 +53,12 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.GetComponent<PlayerController>() != null || collision.GetComponent<PlayerController>() != null)
         {
             return;
         }
+        */
 
         if (collision.GetComponent<IDamageable>() != null)
         {

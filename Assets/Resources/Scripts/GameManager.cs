@@ -5,12 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region Singleton
-    public static GameManager instance { private set; get; }//Singleton
+    public static GameManager singleton { private set; get; }//Singleton
     private void Awake()
     {
-        if (instance == null)
+        if (singleton == null)
         {
-            instance = this;
+            singleton = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -21,10 +21,21 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public PlayerController playerController;
+
+    public enum GameState
+    {
+        init,
+        pre_firstLevel,
+        firstLevel
+    }
+    public GameState gameState;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerController = FindObjectOfType<PlayerController>();
+        gameState = GameState.init;
     }
 
     // Update is called once per frame

@@ -21,7 +21,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Awake()
     {
-        ObjectPooler = GameManager.instance.GetComponent<ObjectPooler>();
+        ObjectPooler = GameManager.singleton.GetComponent<ObjectPooler>();
         playerController = FindObjectOfType<PlayerController>(); 
     }
 
@@ -37,14 +37,13 @@ public abstract class Weapon : MonoBehaviour
         travelDir = new Vector2(target.x - playerController.transform.position.x, target.y - playerController.transform.position.y);
         travelDir.Normalize();
 
-        CalculateFireTime();
+        CalculateFireTimeAndFire();
     }
-
 
     /// <summary>
     /// fires weapon after fireDelay seconds and when player clicks the right mouse button
     /// </summary>
-    protected virtual void CalculateFireTime()
+    protected virtual void CalculateFireTimeAndFire()
     {
         if (Time.time >= fireDelayCounter)
         {

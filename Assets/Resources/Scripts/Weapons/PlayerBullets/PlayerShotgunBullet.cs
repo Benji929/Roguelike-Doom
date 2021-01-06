@@ -29,4 +29,15 @@ public class PlayerShotgunBullet : PlayerBullet
         tempBulletScale = Lifetime / tempMaxLifetime;
         transform.localScale = new Vector3(1f, 1f, 1f) * tempBulletScale;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<IDamageable>() != null)
+        {
+            collision.GetComponent<IDamageable>().DamagedByAmount(Damage);
+
+        }
+
+        DespawnBullet();
+    }
 }

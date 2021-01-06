@@ -5,8 +5,8 @@ using Pathfinding;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    protected float health;
-    protected float maxHeath;
+    public float health;
+    public float maxHealth;
 
     //empty game object with a transform for where this enemy will move
     [SerializeField] protected GameObject transformToSetAsPatrolArea;
@@ -22,8 +22,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Awake()
     {
-        objectPooler = GameManager.instance.GetComponent<ObjectPooler>();
+        objectPooler = GameManager.singleton.GetComponent<ObjectPooler>();
         playerController = FindObjectOfType<PlayerController>();
+    }
+
+    private void Start()
+    {
+        health = maxHealth;
     }
 
     protected abstract void Move();

@@ -25,7 +25,7 @@ public class Chaingun : Weapon
         finalFireDelay = fireDelay;
     }
 
-    protected override void CalculateFireTime()
+    protected override void CalculateFireTimeAndFire()
     {
         if (Input.GetMouseButton(0))
         {

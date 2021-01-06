@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private float moveVector_y;
     public Vector2 Velocity;
 
+    public WeaponManager weaponManager;
+
     // Start is called before the first frame update
     void Start()
     {

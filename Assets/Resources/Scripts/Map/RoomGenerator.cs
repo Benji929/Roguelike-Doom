@@ -23,7 +23,7 @@ public class RoomGenerator : MonoBehaviour
     private void Awake()
     {
         activeAstarPath = AstarPath.active;
-        PlaceRoom(Center, width, height);
+        //PlaceRoom(Center, width, height);
     }
 
     private void Start()
